@@ -7,6 +7,7 @@ import {
 import { bodyParts } from "../constants";
 import { ImageProps as DefaultImageProps, ImageURISource } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 
 type ImageProps = DefaultImageProps & ImageURISource;
 
@@ -48,28 +49,36 @@ export default function BodyParts() {
 }
 
 const BodyPartCard: React.FC<IBodyPartList> = ({ item, index }) => {
+  const router = useRouter();
+
   return (
     <View>
       <TouchableOpacity
+        onPress={() =>
+          router.push({
+            pathname: "/exercises",
+            params: { bodyPart: item.name, index },
+          })
+        }
         style={{ width: wp(44), height: wp(52) }}
-        className="justify-end p-4 mb-4"
+        className="justify-start items-center mb-4"
       >
         <Image
           source={item.image}
           resizeMode="cover"
           style={{ width: wp(44), height: wp(52) }}
-          className="rounded-[35px] absolute"
+          className="rounded-[35px]"
         />
         <LinearGradient
           colors={["transparent", "rgba(0, 0, 0, 0.9)"]}
           style={{ width: wp(44), height: hp(15) }}
           start={{ x: 0.5, y: 0 }}
           end={{ x: 0.5, y: 1 }}
-          className="absolute rounded-b-[35px] bottom-0"
+          className="rounded-b-[35px] absolute bottom-0"
         />
         <Text
           style={{ fontSize: hp(2.3) }}
-          className="text-white font-semibold text-center tracking-wide"
+          className="text-white font-semibold absolute bottom-0 mb-4 text-center tracking-wide"
         >
           {item.name}
         </Text>
