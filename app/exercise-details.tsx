@@ -7,7 +7,6 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Icon from "react-native-vector-icons/AntDesign";
-import Animated, { FadeInDown } from "react-native-reanimated";
 
 export default function ExerciseDetails() {
   const item = useLocalSearchParams();
@@ -38,23 +37,20 @@ export default function ExerciseDetails() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 60 }}
       >
-        <Animated.Text
-          entering={FadeInDown.duration(300).springify()}
+        <Text
           style={{ fontSize: hp(3.5) }}
           className="font-semibold text-neutral-800 tracking-wide"
         >
           {item.name}
-        </Animated.Text>
-        <Animated.Text
-          entering={FadeInDown.delay(100).duration(300).springify()}
+        </Text>
+        <Text
           style={{ fontSize: hp(2) }}
           className="text-neutral-700 tracking-wide"
         >
           Equipment
           <Text className="font-bold text-neutral-800"> {item.equipment}</Text>
-        </Animated.Text>
-        <Animated.Text
-          entering={FadeInDown.delay(200).duration(300).springify()}
+        </Text>
+        <Text
           style={{ fontSize: hp(2) }}
           className="text-neutral-700 tracking-wide"
         >
@@ -63,36 +59,31 @@ export default function ExerciseDetails() {
             {" "}
             {item.secondaryMuscles}
           </Text>
-        </Animated.Text>
-        <Animated.Text
-          entering={FadeInDown.delay(300).duration(300).springify()}
+        </Text>
+        <Text
           style={{ fontSize: hp(2) }}
           className="text-neutral-700 tracking-wide"
         >
           Target
           <Text className="font-bold text-neutral-800"> {item.target}</Text>
-        </Animated.Text>
+        </Text>
 
-        <Animated.Text
-          entering={FadeInDown.delay(400).duration(300).springify()}
+        <Text
           style={{ fontSize: hp(3) }}
           className="font-semibold text-neutral-800 tracking-wide"
         >
           Intructions
-        </Animated.Text>
+        </Text>
 
         {instructions
           ? instructions.split(",").map((instruction: string, i: number) => (
-              <Animated.Text
-                entering={FadeInDown.delay((i + 6) * 100)
-                  .duration(300)
-                  .springify()}
+              <Text
                 key={i}
                 style={{ fontSize: hp(1.7) }}
                 className="text-neutral-800"
               >
                 {instruction.trim()}
-              </Animated.Text>
+              </Text>
             ))
           : null}
       </ScrollView>

@@ -17,9 +17,9 @@ export default function ImageSlider() {
   return (
     <Carousel
       data={sliderImages}
-      loop={true}
-      autoplay={true}
-      renderItem={itemCard}
+      loop={false}
+      autoplay={false}
+      renderItem={ItemCard}
       hasParallaxImages={true}
       sliderWidth={wp(100)}
       firstItem={1}
@@ -30,13 +30,13 @@ export default function ImageSlider() {
   );
 }
 
-const itemCard: any = (
+const ItemCard: any = (
   { item, index }: { item: ImageProps; index: number },
   parallaxProps: AdditionalParallaxProps
 ) => (
   <View style={{ width: wp(100) - 70, height: hp(25) }}>
     <ParallaxImage
-      source={item}
+      source={sliderImages[index]}
       containerStyle={{ borderRadius: 30, flex: 1 }}
       style={{ resizeMode: "contain" }}
       parallaxFactor={0.3}

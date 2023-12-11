@@ -22,11 +22,11 @@ export type IExercises = {
 export const rapidAPIKey = "869a65b91amshc786b955c5628b6p1d5df3jsn45ce63f5fb87";
 
 export const sliderImages = [
-  require("../assets/images/slide1.png"),
-  require("../assets/images/slide2.png"),
-  require("../assets/images/slide3.png"),
-  require("../assets/images/slide4.png"),
-  require("../assets/images/slide5.png"),
+  require("../assets/images/assets_images_slide1.jpeg"),
+  require("../assets/images/assets_images_slide2.jpeg"),
+  require("../assets/images/assets_images_slide3.jpeg"),
+  require("../assets/images/assets_images_slide4.jpeg"),
+  require("../assets/images/assets_images_slide5.jpeg"),
 ];
 
 export const bodyParts = [

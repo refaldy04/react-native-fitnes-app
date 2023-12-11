@@ -27,10 +27,7 @@ export default function App() {
         end={{ x: 0.5, y: 0.8 }}
         className="justify-end pb-12 space-y-8"
       >
-        <Animated.View
-          entering={FadeInDown.delay(100).springify()}
-          className="items-center"
-        >
+        <View className="items-center">
           <Text
             style={{ fontSize: hp(5) }}
             className="text-white font-bold tracking-wide"
@@ -44,9 +41,9 @@ export default function App() {
           >
             For You
           </Text>
-        </Animated.View>
+        </View>
 
-        <Animated.View entering={FadeInDown.delay(200).springify()}>
+        <View>
           <TouchableOpacity
             onPress={() => router.push("/home")}
             style={{ height: hp(7), width: wp(80) }}
@@ -59,7 +56,7 @@ export default function App() {
               Get Started
             </Text>
           </TouchableOpacity>
-        </Animated.View>
+        </View>
       </LinearGradient>
     </View>
   );

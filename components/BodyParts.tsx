@@ -8,7 +8,6 @@ import { bodyParts } from "../constants";
 import { ImageProps as DefaultImageProps, ImageURISource } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
-import Animated, { FadeInDown } from "react-native-reanimated";
 
 type ImageProps = DefaultImageProps & ImageURISource;
 
@@ -53,11 +52,7 @@ const BodyPartCard: React.FC<IBodyPartList> = ({ item, index }) => {
   const router = useRouter();
 
   return (
-    <Animated.View
-      entering={FadeInDown.duration(400)
-        .delay(index * 200)
-        .springify()}
-    >
+    <View>
       <TouchableOpacity
         onPress={() =>
           router.push({
@@ -88,6 +83,6 @@ const BodyPartCard: React.FC<IBodyPartList> = ({ item, index }) => {
           {item.name}
         </Text>
       </TouchableOpacity>
-    </Animated.View>
+    </View>
   );
 };
