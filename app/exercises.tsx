@@ -16,12 +16,12 @@ export default function Exercises() {
   const router = useRouter();
   const { bodyPart, index } = useLocalSearchParams();
 
-  const [exercises, setExercises] = useState(demoExercises);
+  const [exercises, setExercises] = useState([]);
 
   const imageIndex = parseInt(index.toLocaleString());
 
   useEffect(() => {
-    // if (bodyPart) getExercises(bodyPart);
+    if (bodyPart) getExercises(bodyPart);
   }, [bodyPart]);
 
   const getExercises = async (bodyPart: string | string[]) => {

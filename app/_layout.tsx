@@ -12,6 +12,13 @@ export default function _layout() {
           animation: "slide_from_bottom",
         }}
       />
+      <Stack.Screen
+        name="exercise-details"
+        options={{
+          presentation: "modal",
+          animation: "slide_from_bottom",
+        }}
+      />
     </Stack>
   );
 }

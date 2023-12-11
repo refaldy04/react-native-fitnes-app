@@ -6,6 +6,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { useRouter } from "expo-router";
 
 export default function ExerciseList({ data }: { data: IExercises[] }) {
   return (
@@ -28,9 +29,16 @@ export default function ExerciseList({ data }: { data: IExercises[] }) {
 }
 
 const ExerciseCard = ({ item, index }: { item: IExercises; index: number }) => {
+  const router = useRouter();
+
   return (
     <View>
-      <TouchableOpacity className="flex py-3 space-y-2">
+      <TouchableOpacity
+        onPress={() =>
+          router.push({ pathname: "/exercise-details", params: item })
+        }
+        className="flex py-3 space-y-2"
+      >
         <View className="bg-neutral-200 shadow rounded-[25px]">
           <Image
             source={{ uri: item.gifUrl }}
